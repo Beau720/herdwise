@@ -1,0 +1,8 @@
+aside.hidden {
+    display: none; /* Hide the sidebar completely */
+  }
+  
+  aside {
+    transition: all 0.3s ease; /* Transition effect for smoothness */
+  }
+  

@@ -1,0 +1,139 @@
+<!-- <div class="container mx-auto p-4">
+  <h1 class="text-2xl mb-4 flex justify-between items-center">
+    All Devices
+    <button 
+      (click)="addDevice()"
+      class="bg-green-500 text-white px-4 py-2 rounded">
+      Add Device
+    </button>
+  </h1>
+    <table class="min-w-full border-collapse">
+      <thead>
+        <tr>
+          <th class="border-b px-4 py-2 text-left">Device Name</th>
+          <th class="border-b px-4 py-2 text-left">Device Model</th>
+          <th class="border-b px-4 py-2 text-left">Animal-Type</th>
+          <th class="border-b px-4 py-2 text-left">Latitude</th>
+          <th class="border-b px-4 py-2 text-left">longitue</th>
+          <th class="border-b px-4 py-2 text-left">Temperature</th>
+          <th class="border-b px-4 py-2 text-left">High Temperature</th>
+          <th class="border-b px-4 py-2 text-left">Low Temperature</th>
+          <th class="border-b px-4 py-2 text-left">Actions</th>
+        </tr>
+      </thead>
+      
+      <tbody>
+        <tr *ngFor="let device of devices">
+          <td class="border-b px-4 py-2">{{ device.ref}}</td>
+          <td class="border-b px-4 py-2">{{ device.model}}</td>
+          <td class="border-b px-4 py-2">
+            <input 
+              *ngIf="isEditable" 
+              [(ngModel)]="device.type" 
+              class="border border-gray-300 rounded p-1" 
+            />
+            <span *ngIf="!isEditable">{{ device.type }}</span>
+          </td>
+          <td class="border-b px-4 py-2">{{ device.lati }}</td>
+          <td class="border-b px-4 py-2">{{ device.long}}</td>
+          <td class="border-b px-4 py-2">{{ device.temp }}</td>
+          <td class="border-b px-4 py-2">
+            <input 
+              *ngIf="isEditable" 
+              [(ngModel)]="device.highTemp" 
+              class="border border-gray-300 rounded p-1" 
+            />
+            <span *ngIf="!isEditable">{{ device.highTemp }}</span>
+          </td>
+          <td class="border-b px-4 py-2">
+            <input 
+              *ngIf="isEditable" 
+              [(ngModel)]="device.lowTemp" 
+              class="border border-gray-300 rounded p-1" 
+            /> 
+            <span *ngIf="!isEditable">{{ device.lowTemp }}</span>
+          </td> -->
+          <!-- <td class="border-b px-4 py-2">
+            <button 
+              (click)="toggleStatus(device)"
+              [ngClass]="user.status ? 'bg-green-500' : 'bg-red-500'"
+              class="text-white px-4 py-2 rounded">
+              {{ user.status ? 'Active' : 'Inactive' }}
+            </button>
+          </td> -->
+          <!-- <td class="border-b px-4 py-2">
+            <button (click)="editDevice(i)" class="bg-blue-500 text-white px-4 py-2 rounded">
+              {{ isEditable ? 'Save' : 'Edit' }}
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div> -->
+  <div class="container mx-auto p-4">
+    <h1 class="text-2xl mb-4 flex justify-between items-center">
+      All Devices
+      <button 
+        (click)="addDevice()"
+        class="bg-green-500 text-white px-4 py-2 rounded">
+        Add Device
+      </button>
+    </h1>
+    <table class="min-w-full border-collapse">
+      <thead>
+        <tr>
+          <th class="border-b px-4 py-2 text-left">Device Name</th>
+          <th class="border-b px-4 py-2 text-left">Device Model</th>
+          <th class="border-b px-4 py-2 text-left">Animal-Type</th>
+          <th class="border-b px-4 py-2 text-left">Latitude</th>
+          <th class="border-b px-4 py-2 text-left">Longitude</th>
+          <th class="border-b px-4 py-2 text-left">Temperature</th>
+          <th class="border-b px-4 py-2 text-left">High Temperature</th>
+          <th class="border-b px-4 py-2 text-left">Low Temperature</th>
+          <th class="border-b px-4 py-2 text-left">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let device of devices; let i = index">
+          <td class="border-b px-4 py-2">{{ device.ref }}</td>
+          <td class="border-b px-4 py-2">{{ device.model }}</td>
+          <td class="border-b px-4 py-2">
+            <input 
+              *ngIf="editableStates[i]" 
+              [(ngModel)]="device.type" 
+              class="border border-gray-300 rounded p-1" 
+            />
+            <span *ngIf="!editableStates[i]">{{ device.type }}</span>
+          </td>
+          <td class="border-b px-4 py-2">{{ device.lati }}</td>
+          <td class="border-b px-4 py-2">{{ device.long }}</td>
+          <td class="border-b px-4 py-2">{{ device.temp }}</td>
+          <td class="border-b px-4 py-2">
+            <input 
+              *ngIf="editableStates[i]" 
+              [(ngModel)]="device.highTemp" 
+              class="border border-gray-300 rounded p-1" 
+            />
+            <span *ngIf="!editableStates[i]">{{ device.highTemp }}</span>
+          </td>
+          <td class="border-b px-4 py-2">
+            <input 
+              *ngIf="editableStates[i]" 
+              [(ngModel)]="device.lowTemp" 
+              class="border border-gray-300 rounded p-1" 
+            /> 
+            <span *ngIf="!editableStates[i]">{{ device.lowTemp }}</span>
+          </td>
+          <td class="border-b px-4 py-2">
+            <button (click)="editDevice(i)" class="bg-blue-500 text-white px-4 py-2 rounded">
+              {{ editableStates[i] ? 'Save' : 'Edit' }}
+            </button>
+            <button *ngIf="editableStates[i]" (click)="cancelEdit(i)" class="bg-gray-500 text-white px-4 py-2 rounded ml-2">
+              Cancel
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

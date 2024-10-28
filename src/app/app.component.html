@@ -1,0 +1,10 @@
+
+
+<ng-container *ngIf="shouldShowLayout(); else loginRegister">
+    <app-home></app-home>
+  </ng-container>
+  
+  <ng-template #loginRegister>
+    <router-outlet></router-outlet> <!-- This will render Login/Register components -->
+  </ng-template>
+  

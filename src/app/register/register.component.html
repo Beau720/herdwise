@@ -1,0 +1,97 @@
+<div class="flex justify-center items-center h-screen bg-gray-100">
+  <div class="bg-white p-6 rounded-lg shadow-md w-full max-w-md">
+    <h2 class="text-2xl font-semibold text-center mb-6">Create Profile</h2>
+    <form class="space-y-6" #loginForm="ngForm" (ngSubmit)="register()" >
+
+      <div class="mb-2">
+        <label class="block text-sm mb-1" for="first_name">First_name</label>
+        <input [(ngModel)]="farmer.first_name" name="first_name" id="first_name" type="text" 
+        class="border rounded w-full py-1.5 px-6 shadow-sm ring-inset 
+        ring-gray-300"
+         placeholder="Enter your first_name" required />
+      </div>
+
+      <div class="mb-2">
+        <label class="block text-sm mb-1" for="last_name">Last_name</label>
+        <input [(ngModel)]="farmer.last_name" name="last_name" id="last_name" type="text" 
+        class="border rounded w-full py-1.5 px-6 shadow-sm ring-inset 
+        ring-gray-300"
+        placeholder="Enter your last_name" required autocomplete="name" />
+      </div>
+  
+      <div class="mb-2">
+        <label class="block text-sm mb-1" for="email">Email</label>
+        <input [(ngModel)]="farmer.email" name="email" id="email" type="email"
+        class="border rounded w-full py-1.5 px-6 shadow-sm ring-inset 
+        ring-gray-300"
+         placeholder="Enter your email" required autocomplete="email"/>
+      </div>
+
+      <div class="mb-2">
+        <label class="block text-sm mb-1" for="last_name">Contact</label>
+        <input [(ngModel)]="farmer.contact" name="contact" id="contact" type="number"
+        class="border rounded w-full py-1.5 px-6 shadow-sm ring-inset ring-gray-300"
+         placeholder="Enter your Contact Number +27" required autocomplete="number"/>
+      </div>
+
+      <div class="mb-2 flex items-center">
+        <label class="block text-sm mb-1" for="password">Password</label>
+        <div class="relative w-full">
+          <input [(ngModel)]="farmer.password" name="password" id="password" [type]="showPassword ? 'text' : 'password'" 
+            class="border rounded w-full py-1.5 px-6 shadow-sm ring-inset ring-gray-300" 
+            placeholder="Enter your password" required />
+          <button type="button" (click)="togglePasswordVisibility()" 
+            class="absolute right-3 top-1/2 transform -translate-y-1/2">
+            <img [src]="showPassword ? 'assets/eye-off.png' : 'assets/eye.png'" 
+              alt="Toggle Password Visibility" width="24" height="24">
+          </button>
+        </div>
+      </div>
+
+      <div class="mb-2 flex items-center">
+        <label class="block text-sm mb-1" for="confirmPassword">Confirm Password</label>
+        <div class="relative w-full">
+          <input [(ngModel)]="confPassword" name="confirmPassword" id="confirmPassword" 
+            [type]="showConfirmPassword ? 'text' : 'password'" 
+            class="border rounded w-full py-1.5 px-6 shadow-sm ring-inset ring-gray-300" 
+            placeholder="Confirm your password" required />
+          <button type="button" (click)="toggleConfirmPasswordVisibility()" 
+            class="absolute right-3 top-1/2 transform -translate-y-1/2">
+            <img [src]="showConfirmPassword ? 'assets/eye-off.png' : 'assets/eye.png'" 
+              alt="Toggle Password Visibility" width="24" height="24">
+          </button>
+        </div>
+      </div>
+
+      <div class="mb-2">
+        <label class="block text-sm mb-1" for="latFarm">Latitude</label>
+        <input [(ngModel)]="farmer.latFarm" name="latFarm" id="latFarm" type="text"
+        class="border rounded w-full py-1.5 px-6 shadow-sm ring-inset ring-gray-300"
+         placeholder="Enter Latitute of the Farm" required autocomplete="text"/>
+      </div>
+
+      <div class="mb-2">
+        <label class="block text-sm mb-1" for="longFarm">Longitute</label>
+        <input [(ngModel)]="farmer.longFarm" name="longFarm" id="longFarm" type="text" 
+        class="border rounded w-full py-1.5 px-6 shadow-sm ring-inset ring-gray-300"
+        placeholder="Enter Longitute of the Farm" required autocomplete="text" />
+      </div>
+
+      <div class="mb-4">
+        <label class="block text-sm mb-1" for="size">Farm_Size</label>
+        <input [(ngModel)]="farmer.size" name="size" id="size" type="number" 
+        class="border rounded w-full py-1.5 px-6 shadow-sm ring-inset ring-gray-300"
+        placeholder="Enter your farm Size in Meters" required autocomplete="text" />
+      </div>
+      <div *ngIf="passwordMismatchMessage" class="text-red-500">
+        {{ passwordMismatchMessage }}
+      </div>
+      <div class="flex justify-between mt-4">
+      
+      <button (click)="goBack()" class="bg-indigo-600 text-white px-4 py-2 rounded">Back</button>
+      <button [disabled]="!loginForm.form.valid" type="submit" 
+      class="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-500">Register</button>
+      <p *ngIf="errorMessage" class="text-red-500 mt-2">{{ errorMessage }}</p>
+    </div>
+    </form>
+  </div>

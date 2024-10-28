@@ -1,0 +1,49 @@
+<div class="flex justify-center items-center h-screen bg-gray-100">
+    <div class="bg-white p-6 rounded-lg shadow-md w-full max-w-md">
+      <h2 class="text-2xl font-semibold text-center mb-6">Add Device</h2>
+      <form class="space-y-6" (ngSubmit)="addDevice()" >
+  
+        <div class="mb-2">
+          <label class="block text-sm mb-1" for="Animal_Type">Animal_Type</label>
+          <input [(ngModel)]="device.type" name="Animal_Type" id="Animal_Type" type="text" 
+          class="border rounded w-full py-1.5 px-6 shadow-sm ring-inset 
+          ring-gray-300"
+           placeholder="Cow /Pig /Sheep" required />
+        </div>
+  
+        <div class="mb-2">
+          <label  class="block text-sm mb-1" for="High_Temperature">High_Temperature</label>
+          <input [(ngModel)]="device.highTemp"
+           name="High_Temperature" id="High_Temperature" type="text" 
+          class="border rounded w-full py-1.5 px-6 shadow-sm ring-inset 
+          ring-gray-300"
+          placeholder="Enter your High_Temperature" required autocomplete="name" />
+        </div>
+  
+        <div class="mb-2">
+            <label  class="block text-sm mb-1" for="Low_Temperature">Low_Temperature</label>
+            <input [(ngModel)]="device.lowTemp" name="Low_Temperature" id="Low_Temperature" type="text" 
+            class="border rounded w-full py-1.5 px-6 shadow-sm ring-inset 
+            ring-gray-300"
+            placeholder="Enter your Low_Temperature" required autocomplete="name" />
+        </div>
+
+        <div class="mb-2">
+            <label  class="block text-sm mb-1" for="Animal_Type">Model</label>
+            <input [(ngModel)]="device.model"  name="model" id="model" type="text" 
+            class="border rounded w-full py-1.5 px-6 shadow-sm ring-inset 
+            ring-gray-300"
+            placeholder="Check the device" required />
+        </div> 
+        
+        <div class="flex justify-between mt-4">
+        
+       
+        <button type="submit" class="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-500">Add Device</button>
+        <p *ngIf="errorMessage" class="text-red-500 mt-2">{{ errorMessage }}</p>
+      </div>
+      </form>
+      <div class="flex justify-between mt-4">
+      <button (click)="goBack()"  class="bg-indigo-600 text-white px-4 py-2 rounded">Back</button>
+    </div>
+    </div>

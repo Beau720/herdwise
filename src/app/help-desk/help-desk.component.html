@@ -1,0 +1,63 @@
+<div class="flex justify-center items-center h-screen bg-gray-100">
+    <div class="bg-white p-6 rounded-lg shadow-md w-full max-w-lg">
+      <h2 class="text-2xl font-semibold text-center mb-6">Contact Us</h2>
+  
+      <!-- Help form -->
+      <form class="space-y-4">
+        <!-- Company Email field -->
+        <div>
+          <label for="email" class="block text-sm font-medium">Email</label>
+          <input
+            type="email"
+            id="email"
+            placeholder="support@appcompany.com"
+            readonly
+            class="mt-1 p-2 w-full border border-gray-300 rounded-md bg-gray-100 focus:outline-none"
+          />
+        </div>
+  
+        <!-- Company Phone field -->
+        <div>
+          <label for="phone" class="block text-sm font-medium">Phone Number</label>
+          <input
+            type="tel"
+            id="phone"
+            placeholder="(+27) 234 567 890"
+            readonly
+            class="mt-1 p-2 w-full border border-gray-300 rounded-md bg-gray-100 focus:outline-none"
+          />
+        </div>
+  
+        <!-- Company Address field -->
+        <div>
+          <label for="address" class="block text-sm font-medium">Address</label>
+          <textarea
+            id="address"
+            placeholder="123 John Voster Ave, enturion , Pretoria, 012"
+            readonly
+            rows="3"
+            class="mt-1 p-2 w-full border border-gray-300 rounded-md bg-gray-100 focus:outline-none"
+          ></textarea>
+        </div>
+        
+        <!-- Optional additional info (if necessary) -->
+        <div>
+          <label for="support" class="block text-sm font-medium">Support Website</label>
+          <input
+            type="url"
+            id="support"
+            placeholder="https://www.appcompany.com/support"
+            readonly
+            class="mt-1 p-2 w-full border border-gray-300 rounded-md bg-gray-100 focus:outline-none"
+          />
+        </div>
+  
+        <!-- Contact Us (Info Only) -->
+        <div class="mt-6 text-center">
+          <p class="text-gray-600">For further assistance, please contact us using the above information or visit our support page.</p>
+        </div>
+        <button (ngSubmit)="goBack()"  type="submit" class="bg-indigo-600 text-white px-4 py-2 rounded">Back</button>
+      </form>
+    </div>
+  </div>
+  

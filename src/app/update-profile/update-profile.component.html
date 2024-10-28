@@ -1,0 +1,98 @@
+<div class="flex justify-center items-center h-screen bg-gray-100">
+    <div class="bg-white p-6 rounded-lg shadow-md w-full max-w-md">
+      <h2 class="text-2xl font-semibold text-center mb-6">Farmer Profile</h2>
+  
+      <!-- Profile form -->
+      <form class="space-y-4">
+        <!-- Name field -->
+        <div>
+          <label for="name" class="block text-sm font-medium">First Name</label>
+          <input
+            type="text"
+            id="name"
+            [(ngModel)]="farmer.first_name"
+            [readonly]="!isEditMode"
+            class="mt-1 p-2 w-full border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          />
+        </div>
+        <div>
+            <label for="email" class="block text-sm font-medium">Last Name</label>
+            <input
+              type="email"
+              id="email"
+              [(ngModel)]="farmer.last_name"
+              [readonly]="!isEditMode"
+              class="mt-1 p-2 w-full border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            />
+          </div>
+  
+        <!-- Contact field -->
+        <div>
+          <label for="contact" class="block text-sm font-medium">Contact</label>
+          <input
+            type="tel"
+            id="contact"
+            [(ngModel)]="user.contact"
+            [readonly]="!isEditMode"
+            class="mt-1 p-2 w-full border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          />
+        </div>
+
+        <!-- Email field -->
+        <div>
+            <label for="email" class="block text-sm font-medium">Farm-Latitute</label>
+            <input
+              type="email"
+              id="email"
+              [(ngModel)]="user.email"
+              [readonly]="!isEditMode"
+              class="mt-1 p-2 w-full border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            />
+          </div>
+          <div>
+            <label for="email" class="block text-sm font-medium">Farm-Latitute</label>
+            <input
+              type="email"
+              id="email"
+              [(ngModel)]="user.email"
+              [readonly]="!isEditMode"
+              class="mt-1 p-2 w-full border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            />
+          </div>
+  
+        <!-- Buttons -->
+        <div class="flex justify-between mt-4">
+          <!-- Edit Button -->
+          <button
+            type="button"
+            (click)="toggleEditMode()"
+            *ngIf="!isEditMode"
+            class="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-500"
+          >
+            Edit
+          </button>
+  
+          <!-- Update Button (shows only in edit mode) -->
+          <button
+            type="submit"
+            (click)="updateProfile()"
+            *ngIf="isEditMode"
+            class="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-500"
+          >
+            Update
+          </button>
+  
+          <!-- Cancel Button (shows only in edit mode) -->
+          <button
+            type="button"
+            (click)="toggleEditMode()"
+            *ngIf="isEditMode"
+            class="bg-gray-600 text-white px-4 py-2 rounded-md hover:bg-gray-500"
+          >
+            Cancel
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  

@@ -1,0 +1,109 @@
+<div class="flex justify-center items-center h-screen bg-gray-100">
+    <div class="bg-white p-6 rounded-lg shadow-md w-full max-w-md">
+      <h2 class="text-2xl font-semibold text-center mb-6">User Profile</h2>
+      <form class="space-y-6">
+    
+        <div class="mb-2 flex justify-between items-center">
+          <div class="flex-1">
+            <label class="block text-sm mb-1" for="first_name">First Name</label>
+            <input [(ngModel)]="farmer.first_name" name="first_name" id="first_name" type="text" 
+            class="border rounded w-full py-1.5 px-6 shadow-sm ring-inset 
+            ring-gray-300"
+            [readonly]="!editableFields.first_name"
+            placeholder="Enter your first name" required />
+          </div>
+          <button type="button" (click)="toggleEdit('first_name')" class="ml-2">
+            <img src="assets/edit.png" alt="Edit Icon" class="text-sm h-6 w-6">{{ editableFields.first_name ? 'save' : 'edit' }}
+          </button>
+        </div>
+    
+        <div class="mb-2 flex justify-between items-center">
+          <div class="flex-1">
+            <label class="block text-sm mb-1" for="last_name">Last Name</label>
+            <input [(ngModel)]="farmer.last_name" name="last_name" id="last_name" type="text" 
+            class="border rounded w-full py-1.5 px-6 shadow-sm ring-inset 
+            ring-gray-300"
+            [readonly]="!editableFields.last_name"
+            placeholder="Enter your last name" required />
+          </div>
+          <button type="button" (click)="toggleEdit('last_name')" class="ml-2">
+            <img src="assets/edit.png" alt="Edit Icon" class="text-sm h-6 w-6">{{ editableFields.last_name ? 'save' : 'edit' }}
+          </button>
+        </div>
+    
+        <div class="mb-2 flex justify-between items-center">
+          <div class="flex-1">
+            <label class="block text-sm mb-1" for="email">Email</label>
+            <input [(ngModel)]="farmer.email" name="email" id="email" type="email"
+            class="border rounded w-full py-1.5 px-6 shadow-sm ring-inset 
+            ring-gray-300"
+            placeholder="Enter your email" required />
+          </div>
+        </div>
+    
+        <div class="mb-2 flex justify-between items-center">
+          <div class="flex-1">
+            <label class="block text-sm mb-1" for="contact">Contact</label>
+            <input [(ngModel)]="farmer.contact" name="contact" id="contact" type="number"
+            class="border rounded w-full py-1.5 px-6 shadow-sm ring-inset 
+            ring-gray-300"
+            [readonly]="!editableFields.contact"
+            placeholder="Enter your Contact Number +27" required />
+          </div>
+          <button type="button" (click)="toggleEdit('contact')" class="ml-2">
+            <img src="assets/edit.png" alt="Edit Icon" class="text-sm h-6 w-6">{{ editableFields.contact ? 'save' : 'edit' }}
+          </button>
+        </div>
+    
+        <div class="mb-2 flex justify-between items-center">
+          <div class="flex-1">
+            <label class="block text-sm mb-1" for="latFarm">Latitude</label>
+            <input [(ngModel)]="farmer.latFarm" name="latFarm" id="latFarm" type="text" 
+            class="border rounded w-full py-1.5 px-6 shadow-sm ring-inset 
+            ring-gray-300"
+            [readonly]="!editableFields.latFarm"
+            placeholder="Enter your Latitude of the Farm" required />
+          </div>
+          <button type="button" (click)="toggleEdit('latFarm')" class="ml-2">
+            <img src="assets/edit.png" alt="Edit Icon" class="text-sm h-6 w-6">{{ editableFields.latFarm ? 'save' : 'edit' }}
+          </button>
+        </div>
+    
+        <div class="mb-2 flex justify-between items-center">
+          <div class="flex-1">
+            <label class="block text-sm mb-1" for="longFarm">Longitude</label>
+            <input [(ngModel)]="farmer.longFarm" name="longFarm" id="longFarm" type="text" 
+            class="border rounded w-full py-1.5 px-6 shadow-sm ring-inset 
+            ring-gray-300"
+            [readonly]="!editableFields.longFarm"
+            placeholder="Enter your Longitude of the Farm" required />
+          </div>
+          <button type="button" (click)="toggleEdit('longFarm')" class="ml-2">
+            <img src="assets/edit.png" alt="Edit Icon"  class="material-icons text-gray-500 h-6 w-6">{{ editableFields.longFarm ? 'save' : 'edit' }}
+          </button>
+        </div>
+    
+        <div class="mb-2 flex justify-between items-center">
+          <div class="flex-1">
+            <label class="block text-sm mb-1" for="size">Farm Size</label>
+            <input [(ngModel)]="farmer.size" name="size" id="size" type="number" 
+            class="border rounded w-full py-1.5 px-6 shadow-sm ring-inset 
+            ring-gray-300"
+            [readonly]="!editableFields.size"
+            placeholder="Enter your farm size in meters" required />
+          </div>
+          <button type="button" (click)="toggleEdit('size')" class="ml-2">
+            <img src="assets/edit.png" alt="Edit Icon" class="text-sm h-6 w-6">{{ editableFields.size ? 'save' : 'edit' }}
+          </button>
+        </div>
+    
+        <div class="flex justify-between mt-4">
+          <button (click)="goBack()" type="button" class="bg-gray-500 text-white px-4 py-2 rounded">Back</button>
+          <button *ngIf="anyFieldEditable" (click)="cancelEdit()" type="button" class="bg-red-500 text-white px-4 py-2 rounded">Cancel</button>
+        </div>
+    
+        <p *ngIf="errorMessage" class="text-red-500 mt-2">{{ errorMessage }}</p>
+      </form>
+    </div>
+  </div>
+  

@@ -1,0 +1,19 @@
+ #map {
+    height: 120%;
+  }
+
+  body {
+    height: 50%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .map-container {
+    width: 100%;
+    height: 400px;
+  }
+  
+  google-map {
+    width: 100%;
+    height: 100%;
+  }
